@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Heinz Metrosan Donradt Siahaan — Senior .NET Developer</title>
+  <meta name="description" content="Senior .NET Developer with 15+ years experience in Financial, Healthcare, and Government sectors. Specializing in API design, software architecture, and enterprise application development." />
+  <meta name="keywords" content="Senior .NET Developer, C#, ASP.NET Core, Software Architect, API Development, Singapore, Indonesia" />
+  <meta name="author" content="Heinz Metrosan Donradt Siahaan" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- OpenGraph Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://heinzsiahaan.github.io/" />
+  <meta property="og:title" content="Heinz Siahaan — Senior .NET Developer" />
+  <meta property="og:description" content="Senior .NET Developer with 15+ years experience building scalable enterprise systems in Finance, Healthcare & Government." />
+  <meta property="og:image" content="https://heinzsiahaan.github.io/assets/images/heinz.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Heinz Siahaan — Senior .NET Developer" />
+  <meta name="twitter:description" content="Senior .NET Developer | Software Architect | Technical Leader" />
+
+  <!-- Favicon (inline SVG as data URI) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230d1b2a'/><text y='.9em' font-size='80' x='10' fill='%2306b6d4'>H</text></svg>" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Config + Custom CSS -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#020c18',
+              900: '#0d1b2a',
+              800: '#112240',
+              700: '#1a3a5c',
+              600: '#1e4976',
+            },
+            cyan: {
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+            'fade-in': 'fadeIn 0.8s ease-out forwards',
+            'pulse-slow': 'pulse 3s infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'typing': 'typing 3s steps(30) infinite alternate',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ============================================================
+       Base & Global Styles
+    ============================================================ */
+    * { box-sizing: border-box; }
+
+    body {
+      background-color: #0d1b2a;
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0d1b2a; }
+    ::-webkit-scrollbar-thumb { background: #06b6d4; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #22d3ee; }
+
+    /* ============================================================
+       Glassmorphism Card
+    ============================================================ */
+    .glass-card {
+      background: rgba(17, 34, 64, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(6, 182, 212, 0.15);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+      border-color: rgba(6, 182, 212, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(6, 182, 212, 0.1);
+    }
+
+    /* ============================================================
+       Typing Animation
+    ============================================================ */
+    #typing-text::after {
+      content: '|';
+      animation: blink 0.7s infinite;
+      color: #06b6d4;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ============================================================
+       Gradient Text
+    ============================================================ */
+    .gradient-text {
+      background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ============================================================
+       Navbar
+    ============================================================ */
+    #navbar {
+      transition: all 0.3s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(13, 27, 42, 0.95) !important;
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+    .nav-link {
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #06b6d4;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+    .nav-link.active { color: #06b6d4; }
+
+    /* ============================================================
+       Hero Background
+    ============================================================ */
+    .hero-bg {
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.06) 0%, transparent 60%),
+        #0d1b2a;
+    }
+
+    /* Grid pattern overlay */
+    .hero-grid {
+      background-image: linear-gradient(rgba(6,182,212,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(6,182,212,0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    /* ============================================================
+       Skill Badge
+    ============================================================ */
+    .skill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #94a3b8;
+      transition: all 0.3s;
+    }
+    .skill-badge:hover {
+      background: rgba(6, 182, 212, 0.15);
+      border-color: #06b6d4;
+      color: #22d3ee;
+      transform: scale(1.05);
+    }
+
+    /* ============================================================
+       Timeline
+    ============================================================ */
+    .timeline-item {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: -2rem;
+      width: 2px;
+      background: linear-gradient(to bottom, #06b6d4, rgba(6,182,212,0.1));
+    }
+    .timeline-item:last-child::before {
+      display: none;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -7px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      background: #06b6d4;
+      border-radius: 50%;
+      border: 3px solid #0d1b2a;
+      box-shadow: 0 0 12px rgba(6,182,212,0.6);
+    }
+
+    /* ============================================================
+       Section Reveal Animation
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       Profile Avatar Placeholder
+    ============================================================ */
+    .avatar-placeholder {
+      background: linear-gradient(135deg, #112240, #1a3a5c);
+      border: 3px solid rgba(6, 182, 212, 0.4);
+      box-shadow: 0 0 40px rgba(6, 182, 212, 0.2), inset 0 0 40px rgba(6, 182, 212, 0.05);
+    }
+
+    /* Glow ring */
+    .glow-ring {
+      box-shadow: 0 0 0 4px rgba(6,182,212,0.15), 0 0 0 8px rgba(6,182,212,0.08);
+      animation: pulse-ring 3s infinite;
+    }
+    @keyframes pulse-ring {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(6,182,212,0.15), 0 0 0 8px rgba(6,182,212,0.08); }
+      50% { box-shadow: 0 0 0 6px rgba(6,182,212,0.2), 0 0 0 12px rgba(6,182,212,0.05); }
+    }
+
+    /* ============================================================
+       Progress Bar
+    ============================================================ */
+    .progress-bar {
+      height: 4px;
+      background: rgba(6, 182, 212, 0.15);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+      border-radius: 9999px;
+      width: 0;
+      transition: width 1.2s ease;
+    }
+
+    /* ============================================================
+       Mobile Menu
+    ============================================================ */
+    #mobile-menu {
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+    #mobile-menu.open {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    /* ============================================================
+       Floating Shapes (Hero decoration)
+    ============================================================ */
+    .float-shape {
+      animation: floatAnim 8s ease-in-out infinite;
+    }
+    .float-shape-2 {
+      animation: floatAnim 10s ease-in-out infinite reverse;
+    }
+    @keyframes floatAnim {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(5deg); }
+    }
+
+    /* Button styles */
+    .btn-primary {
+      background: linear-gradient(135deg, #06b6d4, #0891b2);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(6, 182, 212, 0.35);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #06b6d4;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: 1px solid #06b6d4;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-outline:hover {
+      background: rgba(6, 182, 212, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Section heading accent line */
+    .section-title {
+      display: inline-block;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, #06b6d4, transparent);
+      margin-top: 8px;
+    }
+
+    /* Tag chip */
+    .tech-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #06b6d4;
+    }
+
+    /* Focus card current */
+    .focus-card {
+      background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(139,92,246,0.05));
+      border: 1px solid rgba(6,182,212,0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+    .focus-card:hover {
+      border-color: rgba(6,182,212,0.5);
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+
+<body class="dark">
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-4 py-4">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center gap-2 group">
+      <span class="w-9 h-9 rounded-lg bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center font-bold font-mono text-cyan-400 group-hover:bg-cyan-500/30 transition-all">H</span>
+      <span class="font-bold text-white hidden sm:block">Heinz<span class="text-cyan-400">.</span></span>
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+      <li><a href="#about" class="nav-link hover:text-white">About</a></li>
+      <li><a href="#skills" class="nav-link hover:text-white">Skills</a></li>
+      <li><a href="#experience" class="nav-link hover:text-white">Experience</a></li>
+      <li><a href="#projects" class="nav-link hover:text-white">Projects</a></li>
+      <li><a href="#education" class="nav-link hover:text-white">Education</a></li>
+      <li><a href="#contact" class="nav-link hover:text-white">Contact</a></li>
+    </ul>
+
+    <!-- CTA + Hamburger -->
+    <div class="flex items-center gap-3">
+      <a href="assets/cv/heinz-siahaan-cv.pdf" download class="hidden md:flex btn-outline text-sm py-2 px-4">
+        <i class="fa-solid fa-download"></i> Download CV
+      </a>
+      <!-- Hamburger -->
+      <button id="hamburger" class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 rounded-lg hover:bg-slate-800 transition-all" aria-label="Toggle menu">
+        <span class="hamburger-line w-5 h-0.5 bg-slate-300 transition-all duration-300"></span>
+        <span class="hamburger-line w-5 h-0.5 bg-slate-300 transition-all duration-300"></span>
+        <span class="hamburger-line w-5 h-0.5 bg-slate-300 transition-all duration-300"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden bg-navy-900/95 backdrop-blur-xl border-t border-slate-700/50 mt-2 rounded-xl">
+    <ul class="flex flex-col p-4 gap-2 text-sm font-medium text-slate-400">
+      <li><a href="#about" class="mobile-nav-link block py-3 px-4 rounded-lg hover:bg-slate-800 hover:text-white transition-all">About</a></li>
+      <li><a href="#skills" class="mobile-nav-link block py-3 px-4 rounded-lg hover:bg-slate-800 hover:text-white transition-all">Skills</a></li>
+      <li><a href="#experience" class="mobile-nav-link block py-3 px-4 rounded-lg hover:bg-slate-800 hover:text-white transition-all">Experience</a></li>
+      <li><a href="#projects" class="mobile-nav-link block py-3 px-4 rounded-lg hover:bg-slate-800 hover:text-white transition-all">Projects</a></li>
+      <li><a href="#education" class="mobile-nav-link block py-3 px-4 rounded-lg hover:bg-slate-800 hover:text-white transition-all">Education</a></li>
+      <li><a href="#contact" class="mobile-nav-link block py-3 px-4 rounded-lg hover:bg-slate-800 hover:text-white transition-all">Contact</a></li>
+      <li class="pt-2 border-t border-slate-700">
+        <a href="assets/cv/heinz-siahaan-cv.pdf" download class="flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20 transition-all">
+          <i class="fa-solid fa-download"></i> Download CV
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO SECTION
+============================================================ -->
+<section id="hero" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+
+  <!-- Grid overlay -->
+  <div class="hero-grid absolute inset-0 pointer-events-none"></div>
+
+  <!-- Floating decorative shapes -->
+  <div class="float-shape absolute top-20 right-20 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="float-shape-2 absolute bottom-20 left-20 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute top-1/3 right-1/4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+  <div class="absolute top-1/2 left-1/3 w-1 h-1 bg-purple-400 rounded-full animate-pulse-slow"></div>
+  <div class="absolute bottom-1/3 right-1/3 w-1.5 h-1.5 bg-cyan-300 rounded-full animate-pulse"></div>
+
+  <div class="max-w-6xl mx-auto px-4 pt-24 pb-16 w-full">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <!-- Left: Text Content -->
+      <div class="space-y-6 animate-fade-in-up">
+
+        <!-- Status badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-400 text-sm">
+          <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+          Available for new opportunities
+        </div>
+
+        <!-- Name -->
+        <div>
+          <p class="text-slate-400 font-mono text-sm mb-2">Hi, I'm</p>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+            Heinz<br/>
+            <span class="gradient-text">Siahaan</span>
+          </h1>
+        </div>
+
+        <!-- Typing Animation -->
+        <div class="h-8 flex items-center">
+          <span class="font-mono text-lg text-cyan-400">
+            &gt; <span id="typing-text"></span>
+          </span>
+        </div>
+
+        <!-- Summary -->
+        <p class="text-slate-400 text-base leading-relaxed max-w-lg">
+          Senior .NET Developer with 15+ years crafting <span class="text-cyan-400">scalable enterprise systems</span> in Finance, Healthcare & Government. Passionate about clean architecture, API design, and technical leadership.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-4">
+          <a href="#experience" class="btn-primary">
+            <i class="fa-solid fa-briefcase"></i> View Experience
+          </a>
+          <a href="#contact" class="btn-outline">
+            <i class="fa-solid fa-envelope"></i> Get In Touch
+          </a>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-3 gap-4 pt-4">
+          <div class="text-center p-3 rounded-xl bg-slate-800/40 border border-slate-700/50">
+            <div class="text-2xl font-black text-cyan-400">15+</div>
+            <div class="text-xs text-slate-500 mt-1">Years Exp.</div>
+          </div>
+          <div class="text-center p-3 rounded-xl bg-slate-800/40 border border-slate-700/50">
+            <div class="text-2xl font-black text-cyan-400">3</div>
+            <div class="text-xs text-slate-500 mt-1">Industries</div>
+          </div>
+          <div class="text-center p-3 rounded-xl bg-slate-800/40 border border-slate-700/50">
+            <div class="text-2xl font-black text-cyan-400">80%+</div>
+            <div class="text-xs text-slate-500 mt-1">Test Coverage</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Avatar -->
+      <div class="flex justify-center md:justify-end">
+        <div class="relative">
+          <!-- Glow background -->
+          <div class="absolute inset-0 bg-cyan-500/20 rounded-full blur-3xl transform scale-125 animate-pulse-slow"></div>
+
+          <!-- Avatar container -->
+          <div class="relative w-72 h-72 md:w-80 md:h-80 rounded-full avatar-placeholder glow-ring flex items-center justify-center overflow-hidden">
+            <!-- Profile SVG Illustration -->
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+              <defs>
+                <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#112240;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#1a3a5c;stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#d4956a" />
+                  <stop offset="100%" style="stop-color:#c27c52" />
+                </linearGradient>
+                <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#06b6d4" />
+                  <stop offset="100%" style="stop-color:#0284c7" />
+                </linearGradient>
+              </defs>
+              <!-- Background -->
+              <rect width="200" height="200" fill="url(#bgGrad)" rx="100"/>
+              <!-- Shirt/Body -->
+              <ellipse cx="100" cy="185" rx="65" ry="50" fill="url(#shirtGrad)" opacity="0.9"/>
+              <rect x="60" y="140" width="80" height="60" rx="10" fill="url(#shirtGrad)" opacity="0.9"/>
+              <!-- Neck -->
+              <rect x="87" y="115" width="26" height="30" rx="10" fill="url(#skinGrad)"/>
+              <!-- Head -->
+              <ellipse cx="100" cy="95" rx="38" ry="42" fill="url(#skinGrad)"/>
+              <!-- Hair -->
+              <ellipse cx="100" cy="58" rx="38" ry="22" fill="#1a0a00"/>
+              <rect x="62" y="55" width="76" height="20" rx="5" fill="#1a0a00"/>
+              <!-- Ears -->
+              <ellipse cx="62" cy="97" rx="7" ry="9" fill="url(#skinGrad)"/>
+              <ellipse cx="138" cy="97" rx="7" ry="9" fill="url(#skinGrad)"/>
+              <!-- Eyes -->
+              <ellipse cx="86" cy="97" rx="7" ry="7.5" fill="white"/>
+              <ellipse cx="114" cy="97" rx="7" ry="7.5" fill="white"/>
+              <circle cx="87" cy="97" r="4.5" fill="#1a0a00"/>
+              <circle cx="115" cy="97" r="4.5" fill="#1a0a00"/>
+              <circle cx="88.5" cy="95.5" r="1.5" fill="white"/>
+              <circle cx="116.5" cy="95.5" r="1.5" fill="white"/>
+              <!-- Eyebrows -->
+              <path d="M79 88 Q86 84 93 88" stroke="#3d1a00" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <path d="M107 88 Q114 84 121 88" stroke="#3d1a00" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <!-- Nose -->
+              <path d="M97 104 Q100 112 103 104" stroke="#b8743e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <!-- Smile -->
+              <path d="M88 117 Q100 125 112 117" stroke="#9e6040" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <!-- Glasses (optional accent) -->
+              <rect x="78" y="92" width="18" height="13" rx="4" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.7"/>
+              <rect x="104" y="92" width="18" height="13" rx="4" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.7"/>
+              <line x1="96" y1="98" x2="104" y2="98" stroke="#06b6d4" stroke-width="1.5" opacity="0.7"/>
+            </svg>
+          </div>
+
+          <!-- Floating tech badges -->
+          <div class="absolute -top-2 -right-4 glass-card px-3 py-2 text-xs font-mono text-cyan-400 animate-bounce" style="animation-duration:3s">
+            <i class="fa-brands fa-microsoft mr-1"></i>.NET Core
+          </div>
+          <div class="absolute -bottom-2 -left-4 glass-card px-3 py-2 text-xs font-mono text-purple-400" style="animation:floatAnim 5s ease-in-out infinite">
+            <i class="fa-solid fa-cubes mr-1"></i>Architect
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="flex justify-center mt-16">
+      <a href="#about" class="flex flex-col items-center gap-2 text-slate-600 hover:text-cyan-400 transition-colors group">
+        <span class="text-xs font-mono">scroll down</span>
+        <div class="w-5 h-8 border-2 border-slate-600 group-hover:border-cyan-400 rounded-full flex justify-center pt-1.5 transition-colors">
+          <div class="w-1 h-2 bg-cyan-500 rounded-full animate-bounce"></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ABOUT ME SECTION
+============================================================ -->
+<section id="about" class="py-24 relative">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <div class="reveal">
+      <p class="font-mono text-cyan-500 text-sm mb-2">01. About Me</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 section-title">Who I Am</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+
+      <!-- Bio -->
+      <div class="reveal space-y-5">
+        <p class="text-slate-300 leading-relaxed">
+          I'm a <span class="text-cyan-400 font-semibold">Senior .NET Developer</span> based in Singapore/Indonesia with over 15 years of experience in the <span class="text-cyan-400">Financial</span>, <span class="text-cyan-400">Healthcare</span>, and <span class="text-cyan-400">Government</span> sectors.
+        </p>
+        <p class="text-slate-400 leading-relaxed">
+          My work centers on building <strong class="text-slate-300">scalable enterprise systems</strong>, designing robust APIs, and driving technical decisions that align business goals with engineering excellence. I thrive in Agile environments and take pride in mentoring developers and elevating team standards.
+        </p>
+        <p class="text-slate-400 leading-relaxed">
+          From insurance core platforms to Singapore government portals, I've architected solutions that serve thousands of users while maintaining <strong class="text-slate-300">80%+ unit test coverage</strong> and adhering to security best practices.
+        </p>
+
+        <!-- Personal info grid -->
+        <div class="grid grid-cols-2 gap-4 pt-4">
+          <div>
+            <p class="text-slate-600 text-xs font-mono uppercase tracking-wider mb-1">Location</p>
+            <p class="text-slate-300 text-sm"><i class="fa-solid fa-location-dot text-cyan-500 mr-1"></i>Singapore / Indonesia</p>
+          </div>
+          <div>
+            <p class="text-slate-600 text-xs font-mono uppercase tracking-wider mb-1">Email</p>
+            <p class="text-slate-300 text-sm break-all"><i class="fa-solid fa-envelope text-cyan-500 mr-1"></i>heinzmdsiahaan@gmail.com</p>
+          </div>
+          <div>
+            <p class="text-slate-600 text-xs font-mono uppercase tracking-wider mb-1">Phone</p>
+            <p class="text-slate-300 text-sm"><i class="fa-solid fa-phone text-cyan-500 mr-1"></i>+62 857 7888 9852</p>
+          </div>
+          <div>
+            <p class="text-slate-600 text-xs font-mono uppercase tracking-wider mb-1">GitHub</p>
+            <a href="https://github.com/HeinzSiahaan" target="_blank" class="text-cyan-400 text-sm hover:underline"><i class="fa-brands fa-github mr-1"></i>HeinzSiahaan</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specialties -->
+      <div class="reveal space-y-5">
+        <h3 class="text-white font-semibold text-lg">Specialties</h3>
+        <div class="grid grid-cols-1 gap-3">
+          <!-- Specialty Item -->
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/30 transition-all">
+            <div class="w-8 h-8 rounded-lg bg-cyan-500/15 flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-network-wired text-cyan-400 text-sm"></i>
+            </div>
+            <span class="text-slate-300 text-sm">API Design & Implementation</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/30 transition-all">
+            <div class="w-8 h-8 rounded-lg bg-cyan-500/15 flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-shield-halved text-cyan-400 text-sm"></i>
+            </div>
+            <span class="text-slate-300 text-sm">Security Best Practices</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/30 transition-all">
+            <div class="w-8 h-8 rounded-lg bg-cyan-500/15 flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-layer-group text-cyan-400 text-sm"></i>
+            </div>
+            <span class="text-slate-300 text-sm">Software Architecture</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/30 transition-all">
+            <div class="w-8 h-8 rounded-lg bg-cyan-500/15 flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-users text-cyan-400 text-sm"></i>
+            </div>
+            <span class="text-slate-300 text-sm">Code Review & Mentoring</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/30 transition-all">
+            <div class="w-8 h-8 rounded-lg bg-cyan-500/15 flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-chess-king text-cyan-400 text-sm"></i>
+            </div>
+            <span class="text-slate-300 text-sm">Technical Leadership</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/30 transition-all">
+            <div class="w-8 h-8 rounded-lg bg-cyan-500/15 flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-building-columns text-cyan-400 text-sm"></i>
+            </div>
+            <span class="text-slate-300 text-sm">Enterprise Application Development</span>
+          </div>
+        </div>
+
+        <!-- Industry Experience -->
+        <h3 class="text-white font-semibold text-lg pt-4">Industry Experience</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-badge"><i class="fa-solid fa-coins text-amber-400"></i> Financial Services</span>
+          <span class="skill-badge"><i class="fa-solid fa-hospital text-red-400"></i> Health Care</span>
+          <span class="skill-badge"><i class="fa-solid fa-landmark text-blue-400"></i> Government</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ARCHITECTURE PHILOSOPHY SECTION
+============================================================ -->
+<section id="philosophy" class="py-20 relative bg-slate-900/30">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <div class="reveal">
+      <p class="font-mono text-cyan-500 text-sm mb-2">02. Architecture Philosophy</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 section-title">How I Build</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 reveal">
+      <!-- Card 1 -->
+      <div class="glass-card p-6 space-y-4">
+        <div class="w-12 h-12 rounded-xl bg-cyan-500/15 flex items-center justify-center">
+          <i class="fa-solid fa-cubes text-cyan-400 text-xl"></i>
+        </div>
+        <h3 class="text-white font-bold text-lg">Clean Architecture</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          I design systems with clear separation of concerns — domain logic isolated from infrastructure, ensuring codebases remain maintainable at scale.
+        </p>
+        <div class="flex flex-wrap gap-1">
+          <span class="tech-tag">SOLID</span>
+          <span class="tech-tag">DDD</span>
+          <span class="tech-tag">CQRS</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass-card p-6 space-y-4">
+        <div class="w-12 h-12 rounded-xl bg-purple-500/15 flex items-center justify-center">
+          <i class="fa-solid fa-shield-halved text-purple-400 text-xl"></i>
+        </div>
+        <h3 class="text-white font-bold text-lg">Security First</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          In financial and government systems, security isn't optional. I embed security considerations into every layer of the architecture from day one.
+        </p>
+        <div class="flex flex-wrap gap-1">
+          <span class="tech-tag">OAuth2</span>
+          <span class="tech-tag">Azure AD</span>
+          <span class="tech-tag">OWASP</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="glass-card p-6 space-y-4">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center">
+          <i class="fa-solid fa-vial text-emerald-400 text-xl"></i>
+        </div>
+        <h3 class="text-white font-bold text-lg">Test-Driven Quality</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Committed to high test coverage. I practice TDD and implement comprehensive unit/integration tests using Moq and xUnit to prevent regressions.
+        </p>
+        <div class="flex flex-wrap gap-1">
+          <span class="tech-tag">xUnit</span>
+          <span class="tech-tag">Moq</span>
+          <span class="tech-tag">80%+ Coverage</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SKILLS SECTION
+============================================================ -->
+<section id="skills" class="py-24 relative">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <div class="reveal">
+      <p class="font-mono text-cyan-500 text-sm mb-2">03. Technical Skills</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 section-title">Tech Stack</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Languages -->
+      <div class="glass-card p-6 reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-lg bg-cyan-500/15 flex items-center justify-center">
+            <i class="fa-solid fa-code text-cyan-400"></i>
+          </div>
+          <h3 class="text-white font-semibold">Languages</h3>
+        </div>
+        <div class="space-y-3">
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-slate-300 font-mono">C#</span>
+              <span class="text-cyan-400 text-xs">Expert</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" data-width="95"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-slate-300 font-mono">JavaScript</span>
+              <span class="text-cyan-400 text-xs">Advanced</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" data-width="80"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-slate-300 font-mono">SQL</span>
+              <span class="text-cyan-400 text-xs">Expert</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" data-width="90"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-slate-300 font-mono">Python</span>
+              <span class="text-cyan-400 text-xs">Intermediate</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" data-width="65"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-slate-300 font-mono">C/C++</span>
+              <span class="text-cyan-400 text-xs">Intermediate</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" data-width="60"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend -->
+      <div class="glass-card p-6 reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-lg bg-purple-500/15 flex items-center justify-center">
+            <i class="fa-brands fa-microsoft text-purple-400"></i>
+          </div>
+          <h3 class="text-white font-semibold">Backend (.NET)</h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-badge">ASP.NET Core</span>
+          <span class="skill-badge">ASP.NET MVC</span>
+          <span class="skill-badge">Web API</span>
+          <span class="skill-badge">.NET Framework</span>
+          <span class="skill-badge">Entity Framework</span>
+          <span class="skill-badge">Dapper</span>
+          <span class="skill-badge">K2 Blackpearl</span>
+          <span class="skill-badge">Background Workers</span>
+        </div>
+      </div>
+
+      <!-- Database -->
+      <div class="glass-card p-6 reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center">
+            <i class="fa-solid fa-database text-amber-400"></i>
+          </div>
+          <h3 class="text-white font-semibold">Database</h3>
+        </div>
+        <div class="space-y-3">
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-slate-300 font-mono">SQL Server</span>
+              <span class="text-amber-400 text-xs">Expert</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" data-width="92"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-slate-300 font-mono">Oracle</span>
+              <span class="text-amber-400 text-xs">Advanced</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" data-width="75"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-slate-300 font-mono">MySQL / MariaDB</span>
+              <span class="text-amber-400 text-xs">Advanced</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" data-width="78"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-slate-300 font-mono">SQLite</span>
+              <span class="text-amber-400 text-xs">Intermediate</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" data-width="65"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cloud & DevOps -->
+      <div class="glass-card p-6 reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-lg bg-orange-500/15 flex items-center justify-center">
+            <i class="fa-brands fa-aws text-orange-400"></i>
+          </div>
+          <h3 class="text-white font-semibold">Cloud & DevOps</h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-badge">AWS Lambda</span>
+          <span class="skill-badge">AWS S3</span>
+          <span class="skill-badge">Azure AD</span>
+          <span class="skill-badge">Git</span>
+          <span class="skill-badge">Jenkins</span>
+          <span class="skill-badge">SonarQube</span>
+          <span class="skill-badge">TFS</span>
+        </div>
+      </div>
+
+      <!-- Architecture -->
+      <div class="glass-card p-6 reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center">
+            <i class="fa-solid fa-sitemap text-emerald-400"></i>
+          </div>
+          <h3 class="text-white font-semibold">Architecture</h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-badge">Clean Architecture</span>
+          <span class="skill-badge">SOLID Principles</span>
+          <span class="skill-badge">MVC</span>
+          <span class="skill-badge">MVVM</span>
+          <span class="skill-badge">MVP</span>
+          <span class="skill-badge">Agile / Scrum</span>
+        </div>
+      </div>
+
+      <!-- Frontend + Reporting -->
+      <div class="glass-card p-6 reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-lg bg-pink-500/15 flex items-center justify-center">
+            <i class="fa-solid fa-palette text-pink-400"></i>
+          </div>
+          <h3 class="text-white font-semibold">Frontend & Reporting</h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-badge">HTML / CSS</span>
+          <span class="skill-badge">Tailwind CSS</span>
+          <span class="skill-badge">Alpine.js</span>
+          <span class="skill-badge">SSRS</span>
+          <span class="skill-badge">Crystal Report</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     EXPERIENCE TIMELINE SECTION
+============================================================ -->
+<section id="experience" class="py-24 bg-slate-900/30 relative">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <div class="reveal">
+      <p class="font-mono text-cyan-500 text-sm mb-2">04. Experience</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 section-title">Work Timeline</h2>
+    </div>
+
+    <div class="space-y-8">
+
+      <!-- Job 1: TSP - HSA -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="glass-card p-6 ml-4">
+          <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+            <div>
+              <h3 class="text-white font-bold text-lg">Senior .NET Engineer</h3>
+              <p class="text-cyan-400 font-medium">The Software Practice Pte Ltd</p>
+              <p class="text-slate-500 text-sm mt-0.5">Health Science Authority — DASH Portal</p>
+            </div>
+            <div class="flex items-center gap-2 flex-shrink-0">
+              <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+              <span class="text-xs font-mono text-green-400 bg-green-500/10 border border-green-500/30 px-3 py-1 rounded-full">Mar 2026 – Present</span>
+            </div>
+          </div>
+          <p class="text-slate-400 text-sm mb-4">
+            Leading backend engineering for Singapore's Health Science Authority DASH portal, focusing on enterprise-grade API implementation and security architecture.
+          </p>
+          <ul class="space-y-2 text-sm text-slate-400 mb-4">
+            <li class="flex gap-2"><span class="text-cyan-500 mt-0.5">▸</span> API implementation & security hardening</li>
+            <li class="flex gap-2"><span class="text-cyan-500 mt-0.5">▸</span> Architecture decisions & best practices enforcement</li>
+            <li class="flex gap-2"><span class="text-cyan-500 mt-0.5">▸</span> Code reviews and team mentoring</li>
+          </ul>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-tag">.NET Core</span>
+            <span class="tech-tag">ASP.NET Web API</span>
+            <span class="tech-tag">Security</span>
+            <span class="tech-tag">Azure AD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Job 2: TSP - SLA LEAP -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="glass-card p-6 ml-4">
+          <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+            <div>
+              <h3 class="text-white font-bold text-lg">Lead Backend Developer</h3>
+              <p class="text-cyan-400 font-medium">The Software Practice Pte Ltd</p>
+              <p class="text-slate-500 text-sm mt-0.5">Singapore Land Authority — LEAP Portal</p>
+            </div>
+            <span class="text-xs font-mono text-slate-400 bg-slate-800/60 border border-slate-700 px-3 py-1 rounded-full flex-shrink-0">Nov 2024 – Mar 2026</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-4">
+            Led backend modernization for the Singapore Land Authority's LEAP Government Portal. Championed AWS integration and set team-wide testing standards.
+          </p>
+          <ul class="space-y-2 text-sm text-slate-400 mb-4">
+            <li class="flex gap-2"><span class="text-cyan-500 mt-0.5">▸</span> Government portal modernization with ASP.NET + EF Core + AWS</li>
+            <li class="flex gap-2"><span class="text-cyan-500 mt-0.5">▸</span> Third-party API integrations</li>
+            <li class="flex gap-2"><span class="text-cyan-500 mt-0.5">▸</span> Achieved 80%+ unit testing coverage</li>
+            <li class="flex gap-2"><span class="text-cyan-500 mt-0.5">▸</span> Background worker development & technical documentation</li>
+          </ul>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-tag">ASP.NET Core</span>
+            <span class="tech-tag">EF Core</span>
+            <span class="tech-tag">AWS Lambda</span>
+            <span class="tech-tag">AWS S3</span>
+            <span class="tech-tag">xUnit</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Job 3: TSP - SLA PLUS -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="glass-card p-6 ml-4">
+          <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+            <div>
+              <h3 class="text-white font-bold text-lg">Lead Backend Developer</h3>
+              <p class="text-cyan-400 font-medium">The Software Practice Pte Ltd</p>
+              <p class="text-slate-500 text-sm mt-0.5">Singapore Land Authority — PLUS Portal</p>
+            </div>
+            <span class="text-xs font-mono text-slate-400 bg-slate-800/60 border border-slate-700 px-3 py-1 rounded-full flex-shrink-0">Sep 2022 – Nov 2024</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-4">
+            Architected and led backend development for SLA's PLUS portal — a critical public-facing government platform.
+          </p>
+          <ul class="space-y-2 text-sm text-slate-400 mb-4">
+            <li class="flex gap-2"><span class="text-cyan-500 mt-0.5">▸</span> End-to-end API implementation & security best practices</li>
+            <li class="flex gap-2"><span class="text-cyan-500 mt-0.5">▸</span> Technical architecture & unit testing with Moq</li>
+            <li class="flex gap-2"><span class="text-cyan-500 mt-0.5">▸</span> Code reviews & standard setting</li>
+          </ul>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-tag">ASP.NET Core</span>
+            <span class="tech-tag">Web API</span>
+            <span class="tech-tag">Moq</span>
+            <span class="tech-tag">SQL Server</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Job 4: Asuransi Astra -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot" style="background:#8b5cf6;box-shadow:0 0 12px rgba(139,92,246,0.6)"></div>
+        <div class="glass-card p-6 ml-4">
+          <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+            <div>
+              <h3 class="text-white font-bold text-lg">Technical Expert</h3>
+              <p class="text-purple-400 font-medium">Asuransi Astra</p>
+              <p class="text-slate-500 text-sm mt-0.5">Beyond Insurance Core System</p>
+            </div>
+            <span class="text-xs font-mono text-slate-400 bg-slate-800/60 border border-slate-700 px-3 py-1 rounded-full flex-shrink-0">Jan 2013 – Aug 2022</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-4">
+            9 years as Technical Expert on a mission-critical insurance core platform — handling claims, policy systems, and team leadership for a major Indonesian insurer.
+          </p>
+          <ul class="space-y-2 text-sm text-slate-400 mb-4">
+            <li class="flex gap-2"><span class="text-purple-500 mt-0.5">▸</span> Core insurance platform development (claims & policy systems)</li>
+            <li class="flex gap-2"><span class="text-purple-500 mt-0.5">▸</span> Technical specifications & cross-team collaboration</li>
+            <li class="flex gap-2"><span class="text-purple-500 mt-0.5">▸</span> Mentoring junior & mid-level developers</li>
+          </ul>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-tag">C#</span>
+            <span class="tech-tag">.NET</span>
+            <span class="tech-tag">K2 Blackpearl</span>
+            <span class="tech-tag">TFS</span>
+            <span class="tech-tag">SQL Server</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Job 5: Victorindo -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot" style="background:#64748b;box-shadow:0 0 12px rgba(100,116,139,0.5)"></div>
+        <div class="glass-card p-6 ml-4">
+          <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+            <div>
+              <h3 class="text-white font-bold text-lg">.NET Developer</h3>
+              <p class="text-slate-400 font-medium">Victorindo Abadi Solusindo</p>
+              <p class="text-slate-500 text-sm mt-0.5">Core System Beyond</p>
+            </div>
+            <span class="text-xs font-mono text-slate-400 bg-slate-800/60 border border-slate-700 px-3 py-1 rounded-full flex-shrink-0">Feb 2010 – Dec 2012</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-4">
+            Started career developing enterprise insurance software, laying the foundation in .NET development, bug fixing, and feature enhancement.
+          </p>
+          <ul class="space-y-2 text-sm text-slate-400 mb-4">
+            <li class="flex gap-2"><span class="text-slate-500 mt-0.5">▸</span> Enterprise insurance software development</li>
+            <li class="flex gap-2"><span class="text-slate-500 mt-0.5">▸</span> Bug fixing, documentation, and feature enhancements</li>
+          </ul>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-tag">C#</span>
+            <span class="tech-tag">.NET</span>
+            <span class="tech-tag">SQL Server</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PROJECTS / HIGHLIGHT PROJECTS SECTION
+============================================================ -->
+<section id="projects" class="py-24 relative">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <div class="reveal">
+      <p class="font-mono text-cyan-500 text-sm mb-2">05. Projects</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 section-title">Highlight Projects</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Project 1 -->
+      <div class="glass-card p-6 flex flex-col gap-4 reveal">
+        <div class="flex items-center justify-between">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/15 flex items-center justify-center">
+            <i class="fa-solid fa-flask text-cyan-400"></i>
+          </div>
+          <div class="flex gap-2 text-slate-600">
+            <i class="fa-solid fa-lock text-sm" title="Internal / Confidential"></i>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white font-bold mb-1">DASH Portal</h3>
+          <p class="text-slate-500 text-xs font-mono mb-3">Health Science Authority, Singapore</p>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Enterprise portal for HSA Singapore enabling digital health product submission and tracking. Implemented secure REST APIs with Azure AD authentication.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-auto">
+          <span class="tech-tag">.NET Core</span>
+          <span class="tech-tag">Azure AD</span>
+          <span class="tech-tag">REST API</span>
+          <span class="tech-tag">SQL Server</span>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="glass-card p-6 flex flex-col gap-4 reveal">
+        <div class="flex items-center justify-between">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center">
+            <i class="fa-solid fa-map text-blue-400"></i>
+          </div>
+          <div class="flex gap-2 text-slate-600">
+            <i class="fa-solid fa-lock text-sm" title="Internal / Confidential"></i>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white font-bold mb-1">LEAP Portal</h3>
+          <p class="text-slate-500 text-xs font-mono mb-3">Singapore Land Authority</p>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Modernized government land portal with microservice-oriented backend, AWS cloud integration, and 80%+ unit test coverage achieved from near zero.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-auto">
+          <span class="tech-tag">ASP.NET Core</span>
+          <span class="tech-tag">EF Core</span>
+          <span class="tech-tag">AWS Lambda</span>
+          <span class="tech-tag">AWS S3</span>
+          <span class="tech-tag">xUnit</span>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="glass-card p-6 flex flex-col gap-4 reveal">
+        <div class="flex items-center justify-between">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/15 flex items-center justify-center">
+            <i class="fa-solid fa-building text-purple-400"></i>
+          </div>
+          <div class="flex gap-2 text-slate-600">
+            <i class="fa-solid fa-lock text-sm" title="Internal / Confidential"></i>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white font-bold mb-1">PLUS Portal</h3>
+          <p class="text-slate-500 text-xs font-mono mb-3">Singapore Land Authority</p>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Public land services portal. Architected clean backend structure with secure APIs, comprehensive unit testing strategy with Moq, and cross-team code reviews.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-auto">
+          <span class="tech-tag">ASP.NET Core</span>
+          <span class="tech-tag">Web API</span>
+          <span class="tech-tag">Moq</span>
+          <span class="tech-tag">SQL Server</span>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="glass-card p-6 flex flex-col gap-4 reveal">
+        <div class="flex items-center justify-between">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/15 flex items-center justify-center">
+            <i class="fa-solid fa-shield text-amber-400"></i>
+          </div>
+          <div class="flex gap-2 text-slate-600">
+            <i class="fa-solid fa-lock text-sm" title="Internal / Confidential"></i>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white font-bold mb-1">Beyond Insurance Core</h3>
+          <p class="text-slate-500 text-xs font-mono mb-3">Asuransi Astra, Indonesia</p>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Mission-critical insurance platform handling claims processing, policy management, and business workflows for one of Indonesia's largest insurers. 9-year continuous evolution.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-auto">
+          <span class="tech-tag">C#</span>
+          <span class="tech-tag">.NET</span>
+          <span class="tech-tag">K2 Blackpearl</span>
+          <span class="tech-tag">TFS</span>
+          <span class="tech-tag">SSRS</span>
+        </div>
+      </div>
+
+      <!-- Project 5: Data Science -->
+      <div class="glass-card p-6 flex flex-col gap-4 reveal">
+        <div class="flex items-center justify-between">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 flex items-center justify-center">
+            <i class="fa-solid fa-chart-line text-emerald-400"></i>
+          </div>
+          <a href="https://github.com/HeinzSiahaan" target="_blank" class="text-slate-600 hover:text-cyan-400 transition-colors text-sm">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+        <div>
+          <h3 class="text-white font-bold mb-1">Data Science Projects</h3>
+          <p class="text-slate-500 text-xs font-mono mb-3">Algoritma Data Science School, 2023</p>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Full-stack Data Science Academy training covering machine learning, statistical analysis, data visualization, and Python/R programming for analytics solutions.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-auto">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">R</span>
+          <span class="tech-tag">Machine Learning</span>
+          <span class="tech-tag">Data Viz</span>
+        </div>
+      </div>
+
+      <!-- Project 6 - Core System Beyond -->
+      <div class="glass-card p-6 flex flex-col gap-4 reveal">
+        <div class="flex items-center justify-between">
+          <div class="w-10 h-10 rounded-xl bg-slate-500/15 flex items-center justify-center">
+            <i class="fa-solid fa-gears text-slate-400"></i>
+          </div>
+          <div class="flex gap-2 text-slate-600">
+            <i class="fa-solid fa-lock text-sm" title="Internal / Confidential"></i>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white font-bold mb-1">Core System Beyond</h3>
+          <p class="text-slate-500 text-xs font-mono mb-3">Victorindo Abadi Solusindo</p>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Enterprise insurance management system — first professional project. Built foundational skills in .NET development, database design, and enterprise software engineering.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-auto">
+          <span class="tech-tag">C#</span>
+          <span class="tech-tag">.NET</span>
+          <span class="tech-tag">SQL Server</span>
+          <span class="tech-tag">Crystal Report</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     LEADERSHIP & MENTORING SECTION
+============================================================ -->
+<section id="leadership" class="py-20 bg-slate-900/30 relative">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <div class="reveal">
+      <p class="font-mono text-cyan-500 text-sm mb-2">06. Leadership</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 section-title">Leadership & Mentoring</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="reveal space-y-6">
+        <p class="text-slate-300 leading-relaxed">
+          Over my career, I've transitioned from individual contributor to <span class="text-cyan-400">technical leader</span> — guiding teams through complex modernization projects while maintaining engineering excellence.
+        </p>
+
+        <div class="space-y-4">
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-lg bg-cyan-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="fa-solid fa-person-chalkboard text-cyan-400"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-1">Technical Mentoring</h4>
+              <p class="text-slate-400 text-sm">Onboarding and coaching junior/mid developers on clean code, SOLID principles, and enterprise patterns.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-lg bg-purple-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="fa-solid fa-code-pull-request text-purple-400"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-1">Code Review Culture</h4>
+              <p class="text-slate-400 text-sm">Established PR review standards that improved team code quality and reduced production bugs significantly.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="fa-solid fa-diagram-project text-emerald-400"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-1">Architecture Decisions</h4>
+              <p class="text-slate-400 text-sm">Led architectural decisions on multiple government portals, balancing performance, maintainability, and security requirements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="reveal grid grid-cols-2 gap-4">
+        <div class="glass-card p-6 text-center">
+          <div class="text-4xl font-black text-cyan-400 mb-2">15+</div>
+          <div class="text-slate-400 text-sm">Years in Software Development</div>
+        </div>
+        <div class="glass-card p-6 text-center">
+          <div class="text-4xl font-black text-purple-400 mb-2">5+</div>
+          <div class="text-slate-400 text-sm">Enterprise Projects Led</div>
+        </div>
+        <div class="glass-card p-6 text-center">
+          <div class="text-4xl font-black text-emerald-400 mb-2">80%+</div>
+          <div class="text-slate-400 text-sm">Unit Test Coverage Goal</div>
+        </div>
+        <div class="glass-card p-6 text-center">
+          <div class="text-4xl font-black text-amber-400 mb-2">3</div>
+          <div class="text-slate-400 text-sm">Countries' Systems Built</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CURRENT FOCUS SECTION
+============================================================ -->
+<section id="focus" class="py-20 relative">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <div class="reveal">
+      <p class="font-mono text-cyan-500 text-sm mb-2">07. Current Focus</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 section-title">What I'm Working On</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 reveal">
+      <div class="focus-card">
+        <div class="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-4">
+          <i class="fa-solid fa-flask text-cyan-400 text-lg"></i>
+        </div>
+        <h4 class="text-white font-semibold mb-2">HSA DASH Portal</h4>
+        <p class="text-slate-500 text-sm">Senior .NET Engineer on Singapore's Health Science Authority digital platform.</p>
+      </div>
+      <div class="focus-card">
+        <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4">
+          <i class="fa-solid fa-shield-halved text-purple-400 text-lg"></i>
+        </div>
+        <h4 class="text-white font-semibold mb-2">API Security</h4>
+        <p class="text-slate-500 text-sm">Deep-diving into OAuth2, JWT patterns, and OWASP API security guidelines.</p>
+      </div>
+      <div class="focus-card">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-4">
+          <i class="fa-brands fa-aws text-emerald-400 text-lg"></i>
+        </div>
+        <h4 class="text-white font-semibold mb-2">Cloud Architecture</h4>
+        <p class="text-slate-500 text-sm">Expanding AWS expertise with serverless patterns and cloud-native .NET solutions.</p>
+      </div>
+      <div class="focus-card">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center mb-4">
+          <i class="fa-solid fa-brain text-amber-400 text-lg"></i>
+        </div>
+        <h4 class="text-white font-semibold mb-2">AI Integration</h4>
+        <p class="text-slate-500 text-sm">Exploring ways to integrate AI/ML capabilities into enterprise .NET applications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FEATURED TECHNOLOGIES SECTION
+============================================================ -->
+<section id="featured-tech" class="py-16 bg-slate-900/30 relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="reveal text-center mb-10">
+      <p class="font-mono text-cyan-500 text-sm mb-2">08. Technologies</p>
+      <h2 class="text-3xl font-bold text-white">Featured Technologies</h2>
+    </div>
+
+    <!-- Scrolling tech marquee -->
+    <div class="relative overflow-hidden">
+      <div class="flex gap-4 animate-marquee" id="tech-marquee">
+        <!-- Tech items (duplicated for seamless loop) -->
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 reveal mt-8">
+      <!-- Tech Icon Card -->
+      <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/40 hover:-translate-y-1 transition-all group">
+        <i class="fa-brands fa-microsoft text-2xl text-blue-400 group-hover:text-blue-300"></i>
+        <span class="text-xs text-slate-500">.NET</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/40 hover:-translate-y-1 transition-all group">
+        <i class="fa-solid fa-database text-2xl text-amber-400 group-hover:text-amber-300"></i>
+        <span class="text-xs text-slate-500">SQL Server</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/40 hover:-translate-y-1 transition-all group">
+        <i class="fa-brands fa-aws text-2xl text-orange-400 group-hover:text-orange-300"></i>
+        <span class="text-xs text-slate-500">AWS</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/40 hover:-translate-y-1 transition-all group">
+        <i class="fa-brands fa-git-alt text-2xl text-red-400 group-hover:text-red-300"></i>
+        <span class="text-xs text-slate-500">Git</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/40 hover:-translate-y-1 transition-all group">
+        <i class="fa-brands fa-python text-2xl text-yellow-400 group-hover:text-yellow-300"></i>
+        <span class="text-xs text-slate-500">Python</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/40 hover:-translate-y-1 transition-all group">
+        <i class="fa-brands fa-js text-2xl text-yellow-300 group-hover:text-yellow-200"></i>
+        <span class="text-xs text-slate-500">JavaScript</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/40 hover:-translate-y-1 transition-all group">
+        <i class="fa-brands fa-html5 text-2xl text-orange-500 group-hover:text-orange-400"></i>
+        <span class="text-xs text-slate-500">HTML5</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/40 hover:-translate-y-1 transition-all group">
+        <i class="fa-brands fa-css3-alt text-2xl text-blue-500 group-hover:text-blue-400"></i>
+        <span class="text-xs text-slate-500">CSS3</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/40 hover:-translate-y-1 transition-all group">
+        <i class="fa-brands fa-jenkins text-2xl text-red-500 group-hover:text-red-400"></i>
+        <span class="text-xs text-slate-500">Jenkins</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/40 hover:-translate-y-1 transition-all group">
+        <i class="fa-brands fa-github text-2xl text-white group-hover:text-slate-300"></i>
+        <span class="text-xs text-slate-500">GitHub</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/40 hover:-translate-y-1 transition-all group">
+        <i class="fa-solid fa-cloud text-2xl text-sky-400 group-hover:text-sky-300"></i>
+        <span class="text-xs text-slate-500">Azure AD</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:border-cyan-500/40 hover:-translate-y-1 transition-all group">
+        <i class="fa-solid fa-layer-group text-2xl text-cyan-400 group-hover:text-cyan-300"></i>
+        <span class="text-xs text-slate-500">EF Core</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     EDUCATION SECTION
+============================================================ -->
+<section id="education" class="py-24 relative">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <div class="reveal">
+      <p class="font-mono text-cyan-500 text-sm mb-2">09. Education</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 section-title">Education</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Education 1 -->
+      <div class="glass-card p-6 reveal">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-xl bg-cyan-500/15 border border-cyan-500/25 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-chart-bar text-cyan-400 text-xl"></i>
+          </div>
+          <div class="flex-1">
+            <div class="flex flex-wrap justify-between gap-2 mb-2">
+              <h3 class="text-white font-bold">Data Science Academy Fullstack</h3>
+              <span class="text-xs font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded">2023</span>
+            </div>
+            <p class="text-cyan-400 text-sm font-medium mb-3">Algoritma Data Science School</p>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Comprehensive full-stack Data Science program covering Python, R, machine learning algorithms, statistical modeling, and data visualization for real-world analytics.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-3">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">R</span>
+              <span class="tech-tag">ML</span>
+              <span class="tech-tag">Statistics</span>
+              <span class="tech-tag">Data Viz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education 2 -->
+      <div class="glass-card p-6 reveal">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-xl bg-purple-500/15 border border-purple-500/25 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-graduation-cap text-purple-400 text-xl"></i>
+          </div>
+          <div class="flex-1">
+            <div class="flex flex-wrap justify-between gap-2 mb-2">
+              <h3 class="text-white font-bold">Bachelor of Computer Science</h3>
+              <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded">2010</span>
+            </div>
+            <p class="text-purple-400 text-sm font-medium mb-3">Binus University, Indonesia</p>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Bachelor's degree in Computer Science from one of Indonesia's top technology universities. Foundations in software engineering, algorithms, data structures, and system design.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-3">
+              <span class="tech-tag">Algorithms</span>
+              <span class="tech-tag">Data Structures</span>
+              <span class="tech-tag">System Design</span>
+              <span class="tech-tag">Software Engineering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACT SECTION
+============================================================ -->
+<section id="contact" class="py-24 bg-slate-900/30 relative">
+  <div class="max-w-4xl mx-auto px-4">
+
+    <div class="reveal text-center mb-12">
+      <p class="font-mono text-cyan-500 text-sm mb-2">10. Contact</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Get In Touch</h2>
+      <p class="text-slate-400 max-w-lg mx-auto">
+        Open to exciting opportunities in enterprise .NET development, technical leadership roles, or architecture consulting. Let's connect!
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- Contact Info -->
+      <div class="reveal space-y-4">
+        <a href="mailto:heinzmdsiahaan@gmail.com" class="flex items-center gap-4 p-4 rounded-xl bg-slate-800/40 border border-slate-700/50 hover:border-cyan-500/40 hover:-translate-y-0.5 transition-all group">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/15 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-envelope text-cyan-400 text-lg"></i>
+          </div>
+          <div>
+            <p class="text-xs text-slate-600 font-mono uppercase tracking-wider mb-0.5">Email</p>
+            <p class="text-white font-medium group-hover:text-cyan-400 transition-colors">heinzmdsiahaan@gmail.com</p>
+          </div>
+        </a>
+
+        <a href="tel:+6285778889852" class="flex items-center gap-4 p-4 rounded-xl bg-slate-800/40 border border-slate-700/50 hover:border-cyan-500/40 hover:-translate-y-0.5 transition-all group">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-phone text-emerald-400 text-lg"></i>
+          </div>
+          <div>
+            <p class="text-xs text-slate-600 font-mono uppercase tracking-wider mb-0.5">Phone / WhatsApp</p>
+            <p class="text-white font-medium group-hover:text-emerald-400 transition-colors">+62 857 7888 9852</p>
+          </div>
+        </a>
+
+        <a href="https://github.com/HeinzSiahaan" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 rounded-xl bg-slate-800/40 border border-slate-700/50 hover:border-cyan-500/40 hover:-translate-y-0.5 transition-all group">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/15 flex items-center justify-center flex-shrink-0">
+            <i class="fa-brands fa-github text-purple-400 text-lg"></i>
+          </div>
+          <div>
+            <p class="text-xs text-slate-600 font-mono uppercase tracking-wider mb-0.5">GitHub</p>
+            <p class="text-white font-medium group-hover:text-purple-400 transition-colors">github.com/HeinzSiahaan</p>
+          </div>
+        </a>
+
+        <!-- Download CV -->
+        <a href="assets/cv/heinz-siahaan-cv.pdf" download class="flex items-center gap-4 p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30 hover:bg-cyan-500/15 hover:-translate-y-0.5 transition-all group">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-file-pdf text-cyan-400 text-lg"></i>
+          </div>
+          <div>
+            <p class="text-xs text-cyan-600 font-mono uppercase tracking-wider mb-0.5">Resume</p>
+            <p class="text-cyan-300 font-bold group-hover:text-cyan-200 transition-colors">Download CV / Resume</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Message Card -->
+      <div class="reveal glass-card p-6 space-y-4">
+        <h3 class="text-white font-bold text-lg">Send a Message</h3>
+        <p class="text-slate-500 text-sm">
+          The quickest way to reach me is via email. I typically respond within 24 hours.
+        </p>
+
+        <div class="space-y-3">
+          <div>
+            <label class="block text-xs text-slate-500 font-mono uppercase tracking-wider mb-1.5">Your Name</label>
+            <input type="text" placeholder="John Doe" class="w-full bg-slate-800/60 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-300 text-sm focus:outline-none focus:border-cyan-500 transition-colors placeholder-slate-600" />
+          </div>
+          <div>
+            <label class="block text-xs text-slate-500 font-mono uppercase tracking-wider mb-1.5">Your Email</label>
+            <input type="email" placeholder="you@example.com" class="w-full bg-slate-800/60 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-300 text-sm focus:outline-none focus:border-cyan-500 transition-colors placeholder-slate-600" />
+          </div>
+          <div>
+            <label class="block text-xs text-slate-500 font-mono uppercase tracking-wider mb-1.5">Message</label>
+            <textarea rows="4" placeholder="Hi Heinz, I'd like to discuss..." class="w-full bg-slate-800/60 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-300 text-sm focus:outline-none focus:border-cyan-500 transition-colors placeholder-slate-600 resize-none"></textarea>
+          </div>
+          <a href="mailto:heinzmdsiahaan@gmail.com" class="btn-primary w-full justify-center">
+            <i class="fa-solid fa-paper-plane"></i> Send via Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="border-t border-slate-800 py-8">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+      <!-- Logo & Name -->
+      <div class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center font-bold font-mono text-cyan-400 text-sm">H</span>
+        <span class="text-slate-400 text-sm">Heinz Metrosan Donradt Siahaan</span>
+      </div>
+
+      <!-- Links -->
+      <div class="flex items-center gap-6 text-xs text-slate-600">
+        <a href="#hero" class="hover:text-slate-400 transition-colors">Home</a>
+        <a href="#about" class="hover:text-slate-400 transition-colors">About</a>
+        <a href="#experience" class="hover:text-slate-400 transition-colors">Experience</a>
+        <a href="#contact" class="hover:text-slate-400 transition-colors">Contact</a>
+      </div>
+
+      <!-- Social + Copyright -->
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/HeinzSiahaan" target="_blank" rel="noopener" class="text-slate-600 hover:text-white transition-colors">
+          <i class="fa-brands fa-github text-lg"></i>
+        </a>
+        <a href="mailto:heinzmdsiahaan@gmail.com" class="text-slate-600 hover:text-cyan-400 transition-colors">
+          <i class="fa-solid fa-envelope text-lg"></i>
+        </a>
+        <span class="text-slate-700 text-xs">© 2026 Heinz Siahaan</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" class="fixed bottom-6 right-6 w-10 h-10 bg-cyan-500 hover:bg-cyan-400 text-white rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 z-40" aria-label="Back to top">
+  <i class="fa-solid fa-chevron-up text-sm"></i>
+</button>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  // ============================================================
+  // 1. TYPING ANIMATION
+  // ============================================================
+  const typingEl = document.getElementById('typing-text');
+  const phrases = [
+    'Senior .NET Developer',
+    'Software Architect',
+    'Technical Leader',
+    'API Design Expert',
+    'Enterprise Developer',
+  ];
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typingTimeout;
+
+  function type() {
+    const current = phrases[phraseIndex];
+    if (isDeleting) {
+      typingEl.textContent = current.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      typingEl.textContent = current.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    let speed = isDeleting ? 60 : 100;
+
+    if (!isDeleting && charIndex === current.length) {
+      speed = 2000; // pause at end
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      speed = 400;
+    }
+
+    typingTimeout = setTimeout(type, speed);
+  }
+  type();
+
+
+  // ============================================================
+  // 2. NAVBAR — scroll effect & active link
+  // ============================================================
+  const navbar = document.getElementById('navbar');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section[id]');
+
+  window.addEventListener('scroll', () => {
+    // Scrolled class
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+
+    // Active nav indicator
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 120) {
+        current = section.id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+
+    // Back to top visibility
+    const btn = document.getElementById('back-to-top');
+    if (window.scrollY > 400) {
+      btn.classList.remove('opacity-0', 'invisible');
+      btn.classList.add('opacity-100', 'visible');
+    } else {
+      btn.classList.add('opacity-0', 'invisible');
+      btn.classList.remove('opacity-100', 'visible');
+    }
+  });
+
+
+  // ============================================================
+  // 3. HAMBURGER MENU
+  // ============================================================
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerLines = document.querySelectorAll('.hamburger-line');
+  let menuOpen = false;
+
+  hamburger.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.classList.toggle('open', menuOpen);
+
+    // Animate hamburger → X
+    if (menuOpen) {
+      hamburgerLines[0].style.transform = 'translateY(8px) rotate(45deg)';
+      hamburgerLines[1].style.opacity = '0';
+      hamburgerLines[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      hamburgerLines[0].style.transform = '';
+      hamburgerLines[1].style.opacity = '1';
+      hamburgerLines[2].style.transform = '';
+    }
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      hamburgerLines[0].style.transform = '';
+      hamburgerLines[1].style.opacity = '1';
+      hamburgerLines[2].style.transform = '';
+    });
+  });
+
+
+  // ============================================================
+  // 4. SCROLL REVEAL ANIMATION
+  // ============================================================
+  const revealElements = document.querySelectorAll('.reveal');
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        // Staggered delay for sibling elements
+        const siblings = entry.target.parentElement.querySelectorAll('.reveal');
+        let delay = 0;
+        siblings.forEach((sib, idx) => {
+          if (sib === entry.target) delay = idx * 100;
+        });
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, Math.min(delay, 400));
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+
+  // ============================================================
+  // 5. PROGRESS BAR ANIMATION (Skills)
+  // ============================================================
+  const progressBars = document.querySelectorAll('.progress-fill');
+
+  const progressObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const width = entry.target.getAttribute('data-width');
+        entry.target.style.width = `${width}%`;
+        progressObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  progressBars.forEach(bar => progressObserver.observe(bar));
+
+
+  // ============================================================
+  // 6. BACK TO TOP
+  // ============================================================
+  document.getElementById('back-to-top').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+
+  // ============================================================
+  // 7. SMOOTH SCROLL for all anchor links
+  // ============================================================
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 80; // navbar height
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
