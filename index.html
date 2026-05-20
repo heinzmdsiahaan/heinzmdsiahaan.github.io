@@ -29,6 +29,9 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- EmailJS — send email from JavaScript, no backend needed -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 
@@ -1575,30 +1578,40 @@
         </a>
       </div>
 
-      <!-- Message Card -->
+      <!-- Message Card with EmailJS -->
       <div class="reveal glass-card p-6 space-y-4">
         <h3 class="text-white font-bold text-lg">Send a Message</h3>
         <p class="text-slate-500 text-sm">
-          The quickest way to reach me is via email. I typically respond within 24 hours.
+          Fill in the form below — I'll get back to you within 24 hours.
         </p>
 
-        <div class="space-y-3">
+        <!-- Alert box (hidden by default) -->
+        <div id="form-alert" class="hidden items-center gap-3 p-3 rounded-lg text-sm font-medium"></div>
+
+        <form id="contact-form" novalidate class="space-y-3">
           <div>
-            <label class="block text-xs text-slate-500 font-mono uppercase tracking-wider mb-1.5">Your Name</label>
-            <input type="text" placeholder="John Doe" class="w-full bg-slate-800/60 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-300 text-sm focus:outline-none focus:border-cyan-500 transition-colors placeholder-slate-600" />
+            <label for="cf-name" class="block text-xs text-slate-500 font-mono uppercase tracking-wider mb-1.5">Your Name <span class="text-red-500">*</span></label>
+            <input id="cf-name" name="from_name" type="text" required placeholder="John Doe"
+              class="cf-input w-full bg-slate-800/60 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-300 text-sm focus:outline-none focus:border-cyan-500 transition-colors placeholder-slate-600" />
           </div>
           <div>
-            <label class="block text-xs text-slate-500 font-mono uppercase tracking-wider mb-1.5">Your Email</label>
-            <input type="email" placeholder="you@example.com" class="w-full bg-slate-800/60 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-300 text-sm focus:outline-none focus:border-cyan-500 transition-colors placeholder-slate-600" />
+            <label for="cf-email" class="block text-xs text-slate-500 font-mono uppercase tracking-wider mb-1.5">Your Email <span class="text-red-500">*</span></label>
+            <input id="cf-email" name="reply_to" type="email" required placeholder="you@example.com"
+              class="cf-input w-full bg-slate-800/60 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-300 text-sm focus:outline-none focus:border-cyan-500 transition-colors placeholder-slate-600" />
           </div>
           <div>
-            <label class="block text-xs text-slate-500 font-mono uppercase tracking-wider mb-1.5">Message</label>
-            <textarea rows="4" placeholder="Hi Heinz, I'd like to discuss..." class="w-full bg-slate-800/60 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-300 text-sm focus:outline-none focus:border-cyan-500 transition-colors placeholder-slate-600 resize-none"></textarea>
+            <label for="cf-msg" class="block text-xs text-slate-500 font-mono uppercase tracking-wider mb-1.5">Message <span class="text-red-500">*</span></label>
+            <textarea id="cf-msg" name="message" rows="4" required placeholder="Hi Heinz, I'd like to discuss..."
+              class="cf-input w-full bg-slate-800/60 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-300 text-sm focus:outline-none focus:border-cyan-500 transition-colors placeholder-slate-600 resize-none"></textarea>
           </div>
-          <a href="mailto:heinzmdsiahaan@gmail.com" class="btn-primary w-full justify-center">
-            <i class="fa-solid fa-paper-plane"></i> Send via Email
-          </a>
-        </div>
+          <!-- Hidden field carries the recipient name for the template -->
+          <input type="hidden" name="to_name" value="Heinz" />
+
+          <button type="submit" id="cf-submit" class="btn-primary w-full justify-center">
+            <i class="fa-solid fa-paper-plane" id="cf-icon"></i>
+            <span id="cf-label">Send Message</span>
+          </button>
+        </form>
       </div>
     </div>
   </div>
@@ -1834,6 +1847,98 @@
         window.scrollTo({ top, behavior: 'smooth' });
       }
     });
+  });
+
+
+  // ============================================================
+  // 8. EMAILJS — Contact Form
+  // ============================================================
+  // ⚠️  SETUP REQUIRED (one-time, free):
+  //   1. Sign up at https://www.emailjs.com
+  //   2. Add Email Service (Gmail recommended) → copy SERVICE_ID
+  //   3. Create Email Template with variables:
+  //        {{from_name}}, {{reply_to}}, {{message}}, {{to_name}}
+  //      → copy TEMPLATE_ID
+  //   4. Go to Account → API Keys → copy PUBLIC_KEY
+  //   5. Replace the three placeholders below with your actual values
+  // ============================================================
+
+  const EMAILJS_PUBLIC_KEY  = 'cwrLjDoAfi85fD2Yc';   // ← replace
+  const EMAILJS_SERVICE_ID  = 'service_lpy0cs8';   // ← replace
+  const EMAILJS_TEMPLATE_ID = 'template_ltpp63l';  // ← replace
+
+  // Only initialize when keys are configured
+  const emailjsReady = !EMAILJS_PUBLIC_KEY.startsWith('YOUR_');
+  if (emailjsReady) {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+
+  const contactForm  = document.getElementById('contact-form');
+  const cfSubmit     = document.getElementById('cf-submit');
+  const cfIcon       = document.getElementById('cf-icon');
+  const cfLabel      = document.getElementById('cf-label');
+  const formAlert    = document.getElementById('form-alert');
+
+  function showAlert(type, msg) {
+    formAlert.className = 'flex items-center gap-3 p-3 rounded-lg text-sm font-medium ' +
+      (type === 'success'
+        ? 'bg-emerald-500/15 border border-emerald-500/30 text-emerald-400'
+        : type === 'warning'
+        ? 'bg-amber-500/15 border border-amber-500/30 text-amber-400'
+        : 'bg-red-500/15 border border-red-500/30 text-red-400');
+    const icon = type === 'success' ? 'fa-circle-check' : type === 'warning' ? 'fa-triangle-exclamation' : 'fa-circle-xmark';
+    formAlert.innerHTML = `<i class="fa-solid ${icon} flex-shrink-0"></i><span>${msg}</span>`;
+  }
+
+  function setLoading(loading) {
+    cfSubmit.disabled = loading;
+    cfIcon.className  = loading ? 'fa-solid fa-spinner fa-spin' : 'fa-solid fa-paper-plane';
+    cfLabel.textContent = loading ? 'Sending...' : 'Send Message';
+  }
+
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const name    = document.getElementById('cf-name').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+    const message = document.getElementById('cf-msg').value.trim();
+
+    // Client-side validation
+    if (!name || !email || !message) {
+      showAlert('error', 'Please fill in all fields.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showAlert('error', 'Please enter a valid email address.');
+      return;
+    }
+
+    // If EmailJS not configured yet → show setup notice
+    if (!emailjsReady) {
+      showAlert('warning',
+        'EmailJS not configured yet. Please set up your keys in the JS section, or ' +
+        '<a href="mailto:heinzmdsiahaan@gmail.com?subject=Message from ' + encodeURIComponent(name) +
+        '&body=' + encodeURIComponent(message) + '" class="underline font-bold">click here to send via email app</a>.'
+      );
+      return;
+    }
+
+    setLoading(true);
+    formAlert.className = 'hidden';
+
+    try {
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this);
+      showAlert('success', '✅ Message sent! I\'ll reply within 24 hours.');
+      contactForm.reset();
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      showAlert('error',
+        'Failed to send. Please email me directly at ' +
+        '<a href="mailto:heinzmdsiahaan@gmail.com" class="underline">heinzmdsiahaan@gmail.com</a>.'
+      );
+    } finally {
+      setLoading(false);
+    }
   });
 </script>
 
